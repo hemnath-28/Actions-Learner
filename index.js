@@ -1,0 +1,15 @@
+const http = require('node:http');
+
+function add(a, b) {
+  return a + b;
+}
+
+if (require.main === module) {
+  http
+    .createServer((req, res) => {
+      res.end(`2 + 3 = ${add(2, 3)}\n`);
+    })
+    .listen(3000, () => console.log('Listening on port 3000'));
+}
+
+module.exports = { add };
